@@ -53,6 +53,34 @@ h1.innerHTML = siteContent['cta']['h1'].replaceAll(' ', "<br> ");
 let button = document.querySelector('button');
 button.textContent = siteContent['cta']['button'];
 
-let img = document.getElementById('cta-img');
-img.setAttribute('src', siteContent['cta']['img-src']);
+let ctaImg = document.getElementById('cta-img');
+ctaImg.setAttribute('src', siteContent['cta']['img-src']);
+
+let h4Array = document.querySelectorAll('.main-content h4');
+
+var h4Keys = [];
+for (var key in siteContent['main-content']){
+  if(key.includes('h4')){
+    h4Keys.push(key);
+  }
+}
+for (let i=0; i<h4Array.length; i++){
+  h4Array[i].textContent = siteContent['main-content'][h4Keys[i]];
+}
+
+let pArray = document.querySelectorAll('.main-content p');
+
+var pKeys =[];
+for (var key in siteContent['main-content']){
+  if(key.includes('content')){
+    pKeys.push(key);
+  }
+}
+for (let i=0; i<pArray.length; i++){
+  pArray[i].textContent = siteContent['main-content'][pKeys[i]];
+}
+
+
+let mainImg = document.getElementById('middle-img');
+mainImg.setAttribute('src', siteContent['main-content']['middle-img-src']);
 
