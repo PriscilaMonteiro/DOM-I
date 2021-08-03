@@ -40,3 +40,62 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+let anchorsArray = document.querySelectorAll('nav a');
+for (i=0; i <anchorsArray.length; i++){
+  anchorsArray[i].textContent = siteContent['nav'][`nav-item-${i+1}`];
+} 
+
+let h1 = document.querySelector('h1');
+h1.innerHTML = siteContent['cta']['h1'].replaceAll(' ', "<br> ");
+
+let button = document.querySelector('button');
+button.textContent = siteContent['cta']['button'];
+
+let ctaImg = document.getElementById('cta-img');
+ctaImg.setAttribute('src', siteContent['cta']['img-src']);
+
+let h4Array = document.querySelectorAll('.main-content h4');
+
+var h4Keys = [];
+for (var key in siteContent['main-content']){
+  if(key.includes('h4')){
+    h4Keys.push(key);
+  }
+}
+for (let i=0; i<h4Array.length; i++){
+  h4Array[i].textContent = siteContent['main-content'][h4Keys[i]];
+}
+
+let pArray = document.querySelectorAll('.main-content p');
+
+var pKeys =[];
+for (var key in siteContent['main-content']){
+  if(key.includes('content')){
+    pKeys.push(key);
+  }
+}
+for (let i=0; i<pArray.length; i++){
+  pArray[i].textContent = siteContent['main-content'][pKeys[i]];
+}
+
+let mainImg = document.getElementById('middle-img');
+mainImg.setAttribute('src', siteContent['main-content']['middle-img-src']);
+
+let contactH4 = document.querySelector('.contact h4');
+contactH4.textContent = siteContent['contact']['contact-h4'];
+
+
+let contactPArray = document.querySelectorAll('.contact p');
+var contactPKeys =[];
+for (var key in siteContent['contact']){
+  if(!key.includes('h4')){
+   contactPKeys.push(key);
+  }
+}
+for (let i=0; i<contactPArray.length; i++){
+  contactPArray[i].innerHTML = siteContent['contact'][contactPKeys[i]].replaceAll('Street', "Street<br> ");
+}
+
+let footer = document.querySelector('footer');
+footer.textContent = siteContent['footer']['copyright']
