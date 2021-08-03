@@ -41,7 +41,6 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
-
 let anchorsArray = document.querySelectorAll('nav a');
 for (i=0; i <anchorsArray.length; i++){
   anchorsArray[i].textContent = siteContent['nav'][`nav-item-${i+1}`];
@@ -80,7 +79,23 @@ for (let i=0; i<pArray.length; i++){
   pArray[i].textContent = siteContent['main-content'][pKeys[i]];
 }
 
-
 let mainImg = document.getElementById('middle-img');
 mainImg.setAttribute('src', siteContent['main-content']['middle-img-src']);
 
+let contactH4 = document.querySelector('.contact h4');
+contactH4.textContent = siteContent['contact']['contact-h4'];
+
+
+let contactPArray = document.querySelectorAll('.contact p');
+var contactPKeys =[];
+for (var key in siteContent['contact']){
+  if(!key.includes('h4')){
+   contactPKeys.push(key);
+  }
+}
+for (let i=0; i<contactPArray.length; i++){
+  contactPArray[i].innerHTML = siteContent['contact'][contactPKeys[i]].replaceAll('Street', "Street<br> ");
+}
+
+let footer = document.querySelector('footer');
+footer.textContent = siteContent['footer']['copyright']
