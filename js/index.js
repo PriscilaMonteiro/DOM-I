@@ -46,3 +46,13 @@ let anchorsArray = document.querySelectorAll('nav a');
 for (i=0; i <anchorsArray.length; i++){
   anchorsArray[i].textContent = siteContent['nav'][`nav-item-${i+1}`];
 } 
+
+let h1 = document.querySelector('h1');
+h1.innerHTML = siteContent['cta']['h1'].replaceAll(' ', "<br> ");
+
+let button = document.querySelector('button');
+button.textContent = siteContent['cta']['button'];
+
+let img = document.getElementById('cta-img');
+img.setAttribute('src', siteContent['cta']['img-src']);
+
